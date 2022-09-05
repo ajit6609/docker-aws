@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t dockeryoutube -f Dockerfile.dev .
+  - docker build -t dockeraws -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true dockeryoutube npm run test
+  - docker run -e CI=true dockeraws npm run test
 
 deploy:
   provider: elasticbeanstalk
@@ -14,9 +14,9 @@ deploy:
   secret_access_key:
     secure: "$SECRET_ACCESS_KEY"
   region: "ap-south-1"
-  app: "docker-youtube"
-  env: "DockerYoutube-env"
-  bucket_name: "elasticbeanstalk-ap-south-1-345800986069"
-  bucket_path: "docker-youtube"
+  app: "dockeraws"
+  env: "Dockeraws-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-909952531829"
+  bucket_path: "dockeraws"
   on:
     branch: master
